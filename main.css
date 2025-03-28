@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f0f0f0;
+    transition: background-color 0.3s ease;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    animation: fadeIn 1s ease-in;
+}
+
+.task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+#taskInput {
+    flex: 1;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#taskInput:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+    outline: none;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: slideIn 0.3s ease forwards;
+}
+
+.task-item.completed span {
+    text-decoration: line-through;
+    color: #888;
+    transition: color 0.3s ease;
+}
+
+.task-item input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.2);
+    transition: transform 0.2s ease;
+}
+
+.task-item input[type="checkbox"]:hover {
+    transform: scale(1.4);
+}
+
+.task-item span {
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.delete-btn {
+    background-color: #ff4444;
+    margin-left: 10px;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding a subtle bounce effect for completed tasks */
+.task-item.completed {
+    animation: bounce 0.3s ease;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
